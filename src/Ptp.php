@@ -87,6 +87,37 @@
         ];
     }
 
+    /*
+     Este método permite consultar la información asociada a la transacción cuyo ID sea el pasado por parámetro.
+     Regresa un array con las siguientes claves:
+     success: (bool) Indica si se realizó o no la petición al WS.
+     data: (array) El resultado devuelto por el WS que contiene la siguiente información:
+      transactionID: (int) Identificador único de la transacción con PTP.
+      sessionID: (string[32]) Identificador único de la sesión con PTP.
+      [reference] => (string[32]) Referencia única de pago.
+      [requestDate] => (string) Fecha de solicitud o creación de la transacción acorde a ISO 8601.
+      [bankProcessDate] => (string) Fecha de procesamiento de la transacción acorde a ISO 8601.
+      [onTest] => (bool) Indicador de si la transacción es en modo de pruebas o no.
+      [returnCode] => (string[30]) Código de respuesta de la transacción.
+      [trazabilityCode] => (string[40]) Código único de seguimiento para la operación dado por la red ACH.
+      [transactionCycle] => (int) Ciclo de compensación de la red.
+      [transactionState] => (string[20]) Información del estado de la transacción [OK, NOT_AUTHORIZED, PENDING, FAILED].
+      [responseCode] => (int) Estado de la operación en PTP.
+      [responseReasonCode] => (string[3]) Código interno de respuesta de la operación en PlacetoPay
+      [responseReasonText] => (string[255]) Mensaje asociado con el código de respuesta de la operación en PTP.
+    */
+    public function getTransactionInformation($transactionID) {
+      $auth = $this->authentication->toArray();
+      $client = new SoapClient($this->service);
+      $response = $client->getTransactionInformation([
+        "auth" => $auth,
+        "transactionID" => $transactionID
+      ]);
+      $success = $response ? true : false;
+      $result = $this->obj2array($response)["getTransactionInformationResult"];
+      return ["success" => $success, "data" => $result];
+    }
+
     public function getAuthentication() {
       return $this->authentication;
     }
