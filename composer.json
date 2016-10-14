@@ -1,0 +1,22 @@
+{
+    "name": "comiguel/ptp",
+    "type": "library",
+    "description": "Library for use PSE WS",
+    "license": "MIT",
+    "keywords": ["ptp"],
+    "authors": [
+        {
+            "name": "Carlos Hincapié",
+            "email": "carmihinfer@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "4.0.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Comiguel\\Ptp\\": "src"
+        }
+    }
+}
