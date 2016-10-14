@@ -18,6 +18,14 @@
       print_r($result);
       $this->assertEquals('array', gettype($result));
     }
+
+    public function testTransaction() {
+      $transaction = Fixtures::getTransaction();
+      $ptp = $this->ptp();
+      $result = $ptp->createTransaction($transaction);
+      print_r($result);
+      $this->assertTrue(true);
+    }
   }
 
 ?>
