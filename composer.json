@@ -1,7 +1,7 @@
 {
     "name": "comiguel/ptp",
     "type": "library",
-    "description": "Library for use PSE WS",
+    "description": "Library for use PSE with PTP WS",
     "minimum-stability": "dev",
     "license": "MIT",
     "keywords": ["ptp"],
@@ -11,7 +11,7 @@
             "email": "carmihinfer@gmail.com"
         }
     ],
-        
+    "require": {},
     "require-dev": {
         "phpunit/phpunit": "4.0.*"
     },
