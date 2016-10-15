@@ -258,3 +258,12 @@ Regresa un array con las claves:
 >    > - **responseCode: (int)** Estado de la operación en PTP.
 >    > - **responseReasonCode: (string[3])** Código interno de respuesta de la operación en PlacetoPay
 >    > - **responseReasonText: (string[255])** Mensaje asociado con el código de respuesta de la operación en PTP.
+
+Test
+-------------
+
+  composer test
+
+License
+-------------
+The MIT License (MIT). Please see [License File](https://github.com/thephpleague/skeleton/blob/master/LICENSE.md)  for more information.
