@@ -22,20 +22,20 @@
   //     );
   //   }
 
-  //   public function testGetBankList() {
-  //     $ptp = $this->ptp();
-  //     $result = $ptp->GetBankList();
-  //     print_r($result);
-  //     $this->assertEquals('array', gettype($result));
-  //   }
+    public function testGetBankList() {
+      $ptp = $this->ptp();
+      $result = $ptp->GetBankList();
+      print_r($result);
+      $this->assertEquals('array', gettype($result));
+    }
 
-  //   public function testTransaction() {
-  //     $transaction = Fixtures::getTransaction();
-  //     $ptp = $this->ptp();
-  //     $result = $ptp->createTransaction($transaction);
-  //     print_r($result);
-  //     $this->assertTrue(true);
-  //   }
+    public function testTransaction() {
+      $transaction = Fixtures::getTransaction();
+      $ptp = $this->ptp();
+      $result = $ptp->createTransaction($transaction);
+      print_r($result);
+      $this->assertEquals('array', gettype($result));
+    }
 
     public function testTransactionMulticredit() {
       $total = 0;
@@ -43,19 +43,19 @@
       $transaction["credits"] = Fixtures::getCredits(2);
       unset($transaction["totalAmount"]);
       unset($transaction["taxAmount"]);
-      print_r($transaction);
+      // print_r($transaction);
       $ptp = $this->ptp();
       $result = $ptp->createTransactionMulticredit($transaction);
       print_r($result);
-      $this->assertTrue(true);
+      $this->assertEquals('array', gettype($result));
     }
 
-  //   public function testTransactionInformation() {
-  //     $ptp = $this->ptp();
-  //     $result = $ptp->getTransactionInformation(1442699586);
-  //     print_r($result);
-  //     $this->assertTrue(true);
-  //   }
+    public function testTransactionInformation() {
+      $ptp = $this->ptp();
+      $result = $ptp->getTransactionInformation(1442699586);
+      print_r($result);
+      $this->assertEquals('array', gettype($result));
+    }
 
     // public function testNothing(){
     //   var_dump(Validation::getTransactionMultiCreditMandatoryFields());

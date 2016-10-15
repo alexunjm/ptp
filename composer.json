@@ -19,5 +19,8 @@
         "psr-4": {
             "Comiguel\\Ptp\\": "src"
         }
+    },
+    "scripts": {
+        "test": "phpunit"
     }
 }
