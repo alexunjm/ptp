@@ -24,6 +24,13 @@
       ];
     }
 
+    public static function getTransactionMultiCreditMandatoryFields() {
+      $mandatories = Validation::getTransactionMandatoryFields();
+      $mandatories[] = "credits";
+      unset($mandatories[array_search("totalAmount", $mandatories)], $mandatories[array_search("taxAmount", $mandatories)]);
+      return $mandatories;
+    }
+
     public static function getTransactionOptionalsFields() {
       return [
         "buyer",
@@ -46,6 +53,16 @@
         "country",
         "phone",
         "mobile"
+      ];
+    }
+
+    public static function getCreditsMandatoryFields() {
+      return [
+        "entityCode",
+        "serviceCode",
+        "amountValue",
+        "taxValue",
+        "description"
       ];
     }
 
