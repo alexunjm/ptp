@@ -59,7 +59,7 @@ El resultado de este método es un array con la siguientes claves:
 >        > - **BankCode: String\[4]** Código del banco
 >        > - **BankName: String\[60]** Nombre del Banco
 
-## createTransaction() ##
+## createTransaction($transaction) ##
 Solicita la creación de una transacción. En los datos de la solicitud se especifica quién es el pagador, el comprador y el despacho. Así mismo para cuál de los bancos habilitados se hace la petición y a que URL de retorno debe el banco redirigir al cuenta habiente.
 ### Datos de entrada
 El método recibe un array asociativo con la información de la transacción a crear. La estructura de este array tiene los siguientes claves obligatorias:
@@ -141,7 +141,7 @@ Puede ser uno de los siguientes valores:
 >        > - **responseReasonCode: (string\[3])** Código interno de respuesta de la operación en PTP.
 >        > - **responseReasonText: (string\[255])** Mensaje asociado con el código de respuesta de la operación.
 
-## createTransactionMultiCredit() ##
+## createTransactionMultiCredit($transaction) ##
 Solicita la creación de una transacción con dispersión de fondos. En los datos de la solicitud se especifica quién es el pagador, el comprador y el despacho. Así mismo para cuál de los bancos habilitados se hace la petición y a que URL de retorno debe el banco redirigir al cuenta habiente. Así como cada uno de los créditos a aplicar para cada uno de los servicios asociados. Tenga en cuenta que un servicio multicrédito tiene asociado unos servicios dependientes. Siempre deberá cobrar a todos los servicios dependientes así el valor para una de los créditos sea cero.
 ### Datos de entrada
 El método recibe un array asociativo con la información de la transacción a crear. La estructura de este array tiene los siguientes claves obligatorias:
@@ -231,7 +231,7 @@ Puede ser uno de los siguientes valores:
 >        > - **responseReasonText: (string\[255])** Mensaje asociado con el código de respuesta de la operación.
 
 
-## createTransactionMultiCredit() ##
+## getTransactionInformation($transactionID) ##
 
 Obtiene la información de una transacción, debe ser consultado para cualquier operación previamente creada con el método createTransaction o createTransactionMultiCredit y a sea cuando regresa del banco o cuando al menos han transcurrido 7 minutos desde que el cliente fue redirigido a la interfaz del banco. Deberá consumirse en intervalos de al menos cada 12 minutos hasta que tenga un estado de transacción transactionState diferente a PENDING.
 
